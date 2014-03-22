@@ -35,5 +35,10 @@ class TimeTest extends FunSpec with ShouldMatchers {
       val t = (2.hours & 59.minutes & 59.seconds) and (1.minutes & 2.seconds)
       t.toString should be("3.hours and 1.minutes and 1.seconds")
     }
+
+    it ("should normalize a time") {
+      val t = (90.minutes).normalize
+      t.toString should be("1.hours and 30.minutes and 0.seconds")
+    }
   }
 }
